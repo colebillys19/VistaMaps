@@ -1,0 +1,29 @@
+
+<% include ../partials/header %>
+
+<div class="user-profile-container">
+    <div><%= user.username %></div>
+    <% if(user.avatar === "") { %>
+        <img src="/img/default-user.png">
+    <% } else { %>
+        <img src="<%= user.avatar %>">
+    <% }; %>
+    <div>
+        <h3><%= user.firstName %> <%= user.lastName %></h3>
+    	<span><%= user.email %></span>
+    </div>
+    <% if(vistas.length == 0) { %>
+        <div><%= user.firstName %> hasn't added any Vistas...</div>
+    <% } else { %>
+        <h2><%= user.firstName %>'s Vistas:</h2>
+        <ul>
+        <% vistas.forEach(function(vista){ %>
+            <li>
+                <a href="/vistas/<%= vista.id %>"><%= vista.name %></a>
+            </li>
+        <% }); %>
+        </ul>
+    <% }; %>
+</div>
+
+<% include ../partials/footer %>

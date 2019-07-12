@@ -1,0 +1,101 @@
+
+<% include ../partials/header %>
+
+<div class="show-container">
+    <a href="<%= vista.image %>" target="_blank"><img src="<%= vista.image %>"></a>
+    <div class="info-block">
+        <div>
+            <div><br></div>
+        	<h2><%= vista.name %></h2>
+            <div><%= vista.city %></div>
+        </div>
+        <div>
+            <p><%= vista.description %></p>
+        </div>
+        <div class="info">
+            <span>Directions</span><p><%= vista.directions %></p>
+            <div><span>Coordinates</span> <%= vista.locationlat %>, <%= vista.locationlon %></div>
+        	<div><span>Category</span> <%= vista.category %></div>
+            <div><span>Rating</span> <%= vista.rating %> / 10</div>
+            <div><br></div>
+        </div>
+    </div>
+    <div id="map"></div>
+	<p class="vista-by">
+        <em>Added by:</em> <a href="/users/<%= vista.author.id %>"><strong><%= vista.author.username %></strong></a>
+    </p>
+    <div class="edt-dlt">
+        <% if( (currentUser && vista.author.id.equals(currentUser._id)) || (currentUser && currentUser.isAdmin) ){ %>
+            <form action="/vistas/<%= vista._id %>/edit" method="GET">
+                <button>Edit</button>
+            </form>
+            <form action="/vistas/<%= vista._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are you sure?');">
+                <button>Delete</button>
+            </form>
+        <% }; %>
+    </div>
+	<div class="comment-block">
+        <% if(vista.comments.length == 0) { %>
+            <div id="no-comments">No comments yet...</div>
+        <% } else { %>
+            <% vista.comments.forEach(function(comment){ %>
+                <div class="comment-grid">
+                    <div class="comment-author">
+                        <div>
+                            <a href="/users/<%= comment.author.id %>"><span><%= comment.author.username %></span></a><br>
+                            <% if( (currentUser && comment.author.id.equals(currentUser._id)) || (currentUser && currentUser.isAdmin) ){ %>
+                                <div class="cmnt-edt-dlt">
+                                    <form action="/vistas/<%=vista._id %>/comments/<%=comment._id %>/edit" method="GET">
+                                        <button class="cmnt-edt-dlt-btn"><i class="fas fa-pen"></i></button>
+                                    </form>
+                                    <form action="/vistas/<%= vista._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are you sure?');">
+                                        <button class="rm-cmnt-btn cmnt-edt-dlt-btn"><i class="fas fa-times"></i></button>
+                                    </form>
+                                </div>
+                            <% }; %>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <div><%= comment.text %></div>
+                    </div>
+                </div>
+                <hr>
+            <% }); %>
+        <% }; %>
+        <div class="add-cmnt-container">
+    		<form action="/vistas/<%= vista._id %>/comments/new" method="get">
+    		    <button class="add-cmnt-btn">Add Comment</button>
+    		</form>
+        </div>
+    </div>
+</div>
+<div class="back">
+	<a href="/vistas">Back to Vistas</a>
+</div>
+
+<!---------------------------------------------------------------------------------------------------->
+
+<script>
+	function initMap() {
+		var myLatLng = {
+			lat: <%= vista.locationlat %>,
+			lng: <%= vista.locationlon %>
+		};
+		// Create a map object and specify the DOM element for display
+		var map = new google.maps.Map(document.getElementById('map'), {
+		    center: myLatLng,
+		    zoom: 12
+		});
+		// Create a marker and set its position.
+		var marker = new google.maps.Marker({
+		    map: map,
+		    position: myLatLng,
+            icon: "/img/marker-icon.png",
+		    title: 'Vista'
+		});
+	};
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=KEY_GOES_HERE&callback=initMap"></script>
+
+<% include ../partials/footer %>

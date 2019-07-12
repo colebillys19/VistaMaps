@@ -1,0 +1,16 @@
+
+<% include ../partials/header %>
+    
+<div class="form-container">
+    <h2>Edit Comment</h2>
+    <form action="/vistas/<%= vista_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+        <div>
+            <label for="comment">Comment</label>
+            <textarea id="comment" name="comment[text]" autofocus required><%= comment.text %></textarea>
+        </div>        
+        <button>Submit!</button>
+    </form>
+    <a class="cancel" href="/vistas/<%= vista_id %>">Cancel</a>
+</div>
+    
+<% include ../partials/footer %>

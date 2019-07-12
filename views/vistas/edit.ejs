@@ -1,0 +1,56 @@
+
+<% include ../partials/header %>
+
+<img class="marker-logo" src="/img/marker.png">
+<div class="vista-form-container">
+	<h2>Edit "<%= vista.name %>"</h2>
+	<form action="/vistas/<%= vista._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="name">Name</label>
+            <input id="name" type="text" name="vista[name]" value="<%= vista.name %>" required autofocus>
+        </div>
+        <div>
+            <label for="rating">Rating</label>
+            <input id="rating" type="number" name="vista[rating]" min="1" max="10" value="<%= vista.rating %>">
+            <span>&nbsp;(1 to 10)</span>
+        </div>
+        <div>
+            <label for="city">City</label>
+            <input id="city" type="text" name="vista[city]" value="<%= vista.city %>">
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <textarea id="description" name="vista[description]"><%= vista.description %></textarea>
+        </div>
+        <div>
+            <label for="directions">Directions</label>
+            <textarea id="directions" name="vista[directions]"><%= vista.directions %></textarea>
+        </div>
+        <div>
+            <label for="location">Location</label>
+            <input id="location" type="text" name="vista[locationlat]" placeholder="Latitude" value="<%= vista.locationlat %>" required>
+            <input type="text" name="vista[locationlon]" placeholder="Longitude" value="<%= vista.locationlon %>" required>
+            <div class="get-cord" ><a href="https://www.gps-coordinates.net/" target="_blank">Get Coordinates</a></div>
+        </div>
+        <div>
+            <label for="category">Category</label>
+            <select id="category" name="vista[category]">
+                <% var options = ['Choose...', 'Beach', 'Desert', 'Forest', 'Infrastructure', 'Jungle', 'Lake', 'Mountain', 'Ocean', 'River', 'Suburban', 'Urban', 'Wetlands'];
+                for (i = 0; i < options.length; i++) { %>
+                    <option value="<%= options[i] %>" 
+                    <% if (options[i] == 'Choose...') { %> disabled <% } %> 
+                    <% if (options[i] == vista.category) { %> selected <% } %> 
+                    ><%= options[i] %></option>
+                <% } %>
+            </select>
+        </div>
+        <div class="form-img-div">
+            <label for="image">Image</label>
+            <input type="file" id="image" name="image" accept="image/*">
+        </div>
+		<button>Update</button>
+	</form>
+    <a class="cancel" href="/vistas/<%= vista.id %>">Cancel</a>
+</div>
+
+<% include ../partials/footer %>

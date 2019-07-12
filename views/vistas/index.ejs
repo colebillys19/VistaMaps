@@ -1,0 +1,41 @@
+
+<% include ../partials/header %>
+
+<div id="index-search">
+    <form action="/vistas" method="GET">
+        <input type="text" name="search" placeholder="Search Vistas">
+        <input id="index-search-btn" type="submit" value="Search">
+    </form>
+</div>
+<% if(noMatch !== null) { %>
+    <h3><%= noMatch %></h3>
+<% }; %>
+<div id="index-grid">
+    <% for (i = 0; i < vistas.length; i++) { %>
+    	<div class="index-containers">
+    		<a href="/vistas/<%= vistas[i]._id %>"><img class="index-imgs" src="<%= vistas[i].image %>"></a>
+            <div><%= vistas[i].name %></div>
+    	</div>
+    <% } %>
+</div>
+<div id="page-select">
+    <% if (pages && pages > 0) { %>
+        <ul>
+            <% if (current == 1) { %>
+                <li><a><i class="fas fa-arrow-left"></i></a></li>
+            <% } else { %>
+                <li><a href="/vistas?page=<%= Number(current) - 1 %><%if(search){%>&search=<%=search%><%}%>"><i class="fas fa-arrow-left"></i></a></li>
+            <% } %>
+            <% if (current == pages) { %>
+                <li><a><i class="fas fa-arrow-right"></i></a></li>
+            <% } else { %>
+                <li><a href="/vistas?page=<%= Number(current) + 1 %><% if(search){ %>&search=<%= search %><% } %>"><i class="fas fa-arrow-right"></i></a></li>
+            <% } %>            
+        </ul>
+    <% } %>
+</div>
+<div id="index-add">
+	<a href="/vistas/new">Add a new Vista</a>
+</div>
+
+<% include ../partials/footer %>

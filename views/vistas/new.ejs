@@ -1,0 +1,62 @@
+
+<% include ../partials/header %>
+
+<img class="marker-logo" src="/img/marker.png">
+<div class="vista-form-container">
+	<h2>Add a Vista</h2>
+	<form action="/vistas" method="POST" enctype="multipart/form-data">
+		<div>
+            <label for="name">Name</label>
+			<input id="name" type="text" name="vista[name]" required autofocus>
+		</div>
+		<div>
+            <label for="rating">Rating&nbsp;</label>
+			<input id="rating" type="number" name="vista[rating]" min="1" max="10">
+            <span>&nbsp;(1 to 10)</span>
+		</div>
+		<div>
+            <label for="city">City</label>
+			<input id="city" type="text" name="vista[city]">
+		</div>
+		<div>
+            <label for="description">Description</label>
+			<textarea id="description" name="vista[description]"></textarea>
+		</div>
+		<div>
+            <label for="directions">Directions</label>
+			<textarea id="directions" name="vista[directions]"></textarea>
+		</div>
+        <div>
+            <label for="location">Location</label>
+            <input id="location" type="text" name="vista[locationlat]" placeholder="Latitude" required><br>
+            <input type="text" name="vista[locationlon]" placeholder="Longitude" required>
+            <div class="get-cord" ><a href="https://www.gps-coordinates.net/" target="_blank">Get Coordinates</a></div>
+        </div>
+		<div>
+            <label for="category">Category&nbsp;</label>
+			<select id="category" name="vista[category]">
+				<option value="" disabled selected>Choose...</option>
+				<option value="Beach">Beach</option>
+				<option value="Desert">Desert</option>
+				<option value="Forest">Forest</option>
+				<option value="Infrastructure">Infrastructure</option>
+				<option value="Jungle">Jungle</option>
+				<option value="Lake">Lake</option>
+				<option value="Mountain">Mountain</option>
+				<option value="Ocean">Ocean</option>
+				<option value="River">River</option>
+				<option value="Suburban">Suburban</option>
+				<option value="Urban">Urban</option>
+				<option value="Wetlands">Wetlands</option>
+			</select>
+		</div>
+		<div class="form-img-div">
+            <label for="image">Image&nbsp;</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+        </div>
+		<button>Submit</button>
+	</form>
+    <a class="cancel" href="/vistas">Cancel</a>
+</div>
+
+<% include ../partials/footer %>

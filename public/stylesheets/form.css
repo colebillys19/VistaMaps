@@ -1,0 +1,195 @@
+
+/*** CREATE/EDIT VISTA STYLES ***********************************************************************/
+
+img.marker-logo {
+    display: block;
+    position: relative;
+    width: 120px;
+    margin: 40px auto 0;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.vista-form-container {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    position: relative;
+    bottom: 40px;
+    width: 360px;
+    margin: 25px auto 0;
+    padding: 25px 35px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    z-index: 0;
+}
+
+.vista-form-container h2 {
+    margin: 5px 0 15px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.vista-form-container span {
+    color: #aaa;
+}
+
+
+
+
+
+
+
+
+
+
+/*** ALL FORM STYLES ********************************************************************************/
+
+.form-container {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 360px;
+    margin: 40px auto 0;
+    padding: 25px 35px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.form-container h2 {
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.form-container input {
+    width: 274px;
+}
+
+.form-container span {
+    color: #999;
+    font-size: 0.8em;
+}
+
+form > div {
+    margin: 5px 0;
+}
+
+form > div > p {
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    color: #999;
+}
+
+label {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 1.1em;
+}
+
+input, textarea {
+    margin: 2px 0 5px;
+    padding: 4px 6px;
+    font-size: 0.8em;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+}
+
+input:focus, textarea:focus {
+    outline: 2px solid #007ff6;
+}
+
+textarea {
+    width: 286px;
+    height: 120px;
+}
+
+#name, #city {
+    width: 225px;
+}
+
+#rating {
+    margin: 2px 0 5px;
+}
+
+.get-cord {
+    margin-bottom: 14px;
+    font-size: 0.9em;
+}
+
+.get-cord a {
+    color: #fff;
+}
+
+.form-img-div {
+    margin-top: 15px;
+}
+
+#image {
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.form-container button, .vista-form-container button {
+    width: 100px;
+    margin-top: 10px;
+    padding: 5px 0;
+    background-color: #53b768;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 2px solid #fff;
+}
+
+.form-container button:hover, .vista-form-container button:hover {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #fff;
+}
+
+.form-container button:focus, 
+.vista-form-container button:focus, 
+.form-container button:active, 
+.vista-form-container button:active {
+    opacity: 0.5;
+    outline: none;
+}
+
+.cancel {
+    display: block;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #fff;
+}
+
+#forgot-link {
+    display: block;
+    margin-top: 20px;
+    color: #fff;
+}
+
+#reset-btn {
+    margin-top: 15px;
+}
+
+.sign-up {
+    margin-bottom: 70px;
+}
+
+
+
+
+
+
+
+
+

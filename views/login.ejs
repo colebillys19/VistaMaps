@@ -1,0 +1,20 @@
+
+<% include ./partials/header %>
+
+<div class="form-container">
+	<h2>Log in</h2>
+	<form action="/login" method="POST">
+		<div>
+			<label for="username">Username</label>
+    		<input id="username" type="text" name="username" required autofocus>
+    	</div>
+    	<div>
+    		<label for="password">Password</label>
+    		<input id="password" type="password" name="password" required>
+    	</div>
+    	<button>Log In!</button>
+	</form>
+    <a id="forgot-link" href="/forgot">Forgot Password</a>
+</div>
+
+<% include ./partials/footer %>

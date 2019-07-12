@@ -1,0 +1,177 @@
+
+body {
+    background-color: #000;
+    font-family: 'Lato', sans-serif;
+}
+
+#landing-header {
+    position: relative;
+    z-index: 1;
+    margin: 25vh auto 0;
+    padding: 20px 0 40px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #fff;
+    text-shadow: 1px 1px 5px #000;
+}
+
+#landing-header img {
+    width: 300px;
+}
+
+button {
+    width: 220px;
+    padding: 12px 0;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 8px;
+    -webkit-box-shadow: 1px 1px 5px #000;
+            box-shadow: 1px 1px 5px #000;
+}
+
+button:hover {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+    cursor: pointer;
+}
+
+button:focus, button:active {
+    opacity: 0.5;
+    outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+/*** SLIDES *****************************************************************************************/
+
+.slideshow {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    -webkit-animation: imageAnimation 50s linear infinite;
+            animation: imageAnimation 50s linear infinite;
+}
+
+.slideshow li:nth-child(1) {
+    background-image: url(https://res.cloudinary.com/dxklaorw6/image/upload/v1542639615/xi3ibd3l4kvp1eshwzfw.jpg);
+}
+
+.slideshow li:nth-child(2) {
+    background-image: url(https://res.cloudinary.com/dxklaorw6/image/upload/v1542630508/lwze4ubf9hrwttuaucbt.jpg);
+    -webkit-animation-delay: 10s;
+            animation-delay: 10s;
+}
+
+.slideshow li:nth-child(3) {
+    background-image: url(https://res.cloudinary.com/dxklaorw6/image/upload/v1542632999/ncxmxuctpl3kqrt5af0c.jpg);
+    -webkit-animation-delay: 20s;
+            animation-delay: 20s;
+}
+
+.slideshow li:nth-child(4) {
+    background-image: url(https://res.cloudinary.com/dxklaorw6/image/upload/v1542634908/kyqv17d0go7rbn1m0ewt.jpg);
+    -webkit-animation-delay: 30s;
+            animation-delay: 30s;
+}
+
+.slideshow li:nth-child(5) {
+    background-image: url(https://res.cloudinary.com/dxklaorw6/image/upload/v1542642062/lktqn9nyu8vbnr93vyei.jpg);
+    -webkit-animation-delay: 40s;
+            animation-delay: 40s;
+}
+
+@-webkit-keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+    }
+
+    10% {
+        opacity: 1;
+        -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    30%{
+        opacity: 0;
+    }
+}
+
+@keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+    }
+
+    10% {
+        opacity: 1;
+        -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    30%{
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/****************************************************************************************************/
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
